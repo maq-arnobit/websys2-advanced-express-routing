@@ -8,13 +8,13 @@ function getAllProducts(req, res) {
     if (req.query.desc) {
         result = result.filter((product) => product.description.toLowerCase().includes(req.query.desc.toLowerCase()));
     }
-    if (req.query.startPrice && req.query.endPrice) {
+    if (req.query.startPrice) {
         result = result.filter((product) => product.price >= req.query.startPrice);
     }
     if (req.query.endPrice) {
         result = result.filter((product) => product.price <= req.query.endPrice);
     }
-    if (req.query.startStock && req.query.endStock) {
+    if (req.query.startStock) {
         result = result.filter((product) => product.stock >= req.query.startStock);
     }
     if (req.query.endStock) {
@@ -25,4 +25,5 @@ function getAllProducts(req, res) {
 
 module.exports = {
     getAllProducts
+
 }
